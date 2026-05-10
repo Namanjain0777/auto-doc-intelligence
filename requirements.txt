@@ -1,0 +1,25 @@
+# Core Framework
+fastapi>=0.104.1
+uvicorn[standard]>=0.24.0
+
+# PDF Processing (pdfplumber works better with Python 3.14)
+pdfplumber>=0.10.4
+
+# Google Gemini AI
+google-generativeai>=0.3.2
+
+# Vector Database
+chromadb>=0.4.22
+sentence-transformers>=2.2.2
+
+# Utilities
+python-dotenv>=1.0.0
+pillow>=10.1.0
+numpy>=1.26.0
+tqdm>=4.66.1
+python-multipart>=0.0.6
+
+# Development & Testing
+pytest>=7.4.3
+black>=23.12.0
+flake8>=7.0.0

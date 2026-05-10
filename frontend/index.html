@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automotive Doc Intelligence</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <header class="header">
+            <div class="logo">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                    <rect width="32" height="32" rx="8" fill="#3B82F6"/>
+                    <path d="M8 22L16 10L24 22H8Z" stroke="white" stroke-width="2" stroke-linejoin="round"/>
+                    <circle cx="16" cy="20" r="2" fill="white"/>
+                </svg>
+                <span>AutoDoc AI</span>
+            </div>
+            <nav class="nav">
+                <button class="nav-btn active" data-tab="upload">Upload</button>
+                <button class="nav-btn" data-tab="query">Query</button>
+                <button class="nav-btn" data-tab="documents">Documents</button>
+            </nav>
+        </header>
+
+        <main class="main-content">
+            <!-- Upload Tab -->
+            <section id="upload-section" class="tab-section active">
+                <div class="upload-container">
+                    <div class="upload-header">
+                        <h1>Upload Service Manual</h1>
+                        <p>Upload automotive PDF service manuals to build your knowledge base</p>
+                    </div>
+                    
+                    <div class="upload-area" id="upload-area">
+                        <div class="upload-icon">
+                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                                <path d="M24 32V16M24 16L18 22M24 16L30 22" stroke="#6B7280" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M8 32V36C8 38.2091 9.79086 40 12 40H36C38.2091 40 40 38.2091 40 36V32" stroke="#6B7280" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <p class="upload-text">Drag & drop your PDF here</p>
+                        <p class="upload-subtext">or click to browse</p>
+                        <input type="file" id="file-input" accept=".pdf" hidden>
+                    </div>
+
+                    <div class="upload-progress hidden" id="upload-progress">
+                        <div class="progress-info">
+                            <span id="file-name">filename.pdf</span>
+                            <span id="progress-percent">0%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="progress-fill"></div>
+                        </div>
+                        <p class="progress-status" id="progress-status">Processing...</p>
+                    </div>
+
+                    <div class="uploaded-files hidden" id="uploaded-files">
+                        <h3>Uploaded Documents</h3>
+                        <ul id="files-list"></ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Query Tab -->
+            <section id="query-section" class="tab-section">
+                <div class="query-container">
+                    <div class="query-header">
+                        <h1>Ask About Your Vehicle</h1>
+                        <p>Get answers from your uploaded service manuals</p>
+                    </div>
+
+                    <div class="query-input-container">
+                        <textarea id="query-input" placeholder="e.g., How do I replace brake pads on a 2018 Toyota Camry?" rows="3"></textarea>
+                        <button id="query-btn" class="query-btn">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M10 4L10 16M10 4L4 10L10 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            Ask
+                        </button>
+                    </div>
+
+                    <div class="suggested-questions" id="suggested-questions">
+                        <p>Suggested questions:</p>
+                        <div class="suggestions-list" id="suggestions-list"></div>
+                    </div>
+
+                    <div class="query-results hidden" id="query-results">
+                        <div class="result-header">
+                            <h2>Answer</h2>
+                            <div class="confidence-badge" id="confidence-badge">Confidence: --</div>
+                        </div>
+                        <div class="answer-content" id="answer-content"></div>
+                        
+                        <div class="sources-section" id="sources-section">
+                            <h3>Sources</h3>
+                            <ul id="sources-list"></ul>
+                        </div>
+                    </div>
+
+                    <div class="loading hidden" id="loading">
+                        <div class="spinner"></div>
+                        <p>Searching through documents...</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Documents Tab -->
+            <section id="documents-section" class="tab-section">
+                <div class="documents-container">
+                    <div class="documents-header">
+                        <h1>Knowledge Base</h1>
+                        <p>View and manage your uploaded documents</p>
+                    </div>
+
+                    <div class="stats-card" id="stats-card">
+                        <div class="stat">
+                            <span class="stat-value" id="doc-count">0</span>
+                            <span class="stat-label">Documents</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-value" id="chunk-count">0</span>
+                            <span class="stat-label">Chunks</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-value" id="model-name">--</span>
+                            <span class="stat-label">Embedding Model</span>
+                        </div>
+                    </div>
+
+                    <div class="documents-list" id="documents-list">
+                        <p class="no-docs">No documents uploaded yet</p>
+                    </div>
+
+                    <button class="reset-btn" id="reset-btn">Reset Knowledge Base</button>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="/static/app.js"></script>
+</body>
+</html>

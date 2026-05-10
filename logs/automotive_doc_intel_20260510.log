@@ -1,0 +1,9 @@
+Y-05-10 12:26:24 - api.document_router - INFO - document_router.py:46 - RAG pipeline initialized
+Y-05-10 12:26:24 - api.document_router - INFO - document_router.py:87 - Received upload: demo_automotive_service_manual.pdf (8229 bytes)
+Y-05-10 12:26:24 - api.document_router - INFO - document_router.py:100 - Saved uploaded file to: uploads\demo_automotive_service_manual.pdf
+Y-05-10 12:26:24 - api.document_router - INFO - document_router.py:131 - Starting background processing of: uploads\demo_automotive_service_manual.pdf
+Y-05-10 12:26:25 - api.document_router - INFO - document_router.py:133 - Background processing complete: {'success': True, 'message': 'Successfully processed and stored document', 'filename': 'demo_automotive_service_manual.pdf', 'chunks_processed': 102, 'text_chunks': 102, 'diagram_chunks': 0, 'stored_chunks': 102, 'processing_time_seconds': 0.843618, 'timestamp': '2026-05-10T12:26:25.054904'}
+Y-05-10 12:26:42 - api.document_router - INFO - document_router.py:87 - Received upload: demo_automotive_service_manual.pdf (8229 bytes)
+Y-05-10 12:26:42 - api.document_router - INFO - document_router.py:100 - Saved uploaded file to: uploads\demo_automotive_service_manual.pdf
+Y-05-10 12:26:42 - api.document_router - INFO - document_router.py:131 - Starting background processing of: uploads\demo_automotive_service_manual.pdf
+Y-05-10 12:26:42 - api.document_router - INFO - document_router.py:133 - Background processing complete: {'success': True, 'message': 'Successfully processed and stored document', 'filename': 'demo_automotive_service_manual.pdf', 'chunks_processed': 102, 'text_chunks': 102, 'diagram_chunks': 0, 'stored_chunks': 102, 'processing_time_seconds': 0.481538, 'timestamp': '2026-05-10T12:26:42.962590'}
